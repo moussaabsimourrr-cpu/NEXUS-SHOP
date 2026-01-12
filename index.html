@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS SHOP - Ultimate Gaming</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #e74c3c;
+            --accent: #00d2ff;
+            --glass: rgba(255, 255, 255, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            margin: 0; font-family: 'Inter', sans-serif;
+            background: #0a0a0c; color: white;
+            background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1920&q=80');
+            background-attachment: fixed; background-size: cover;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- Header & Logo (KIFMA KAN) --- */
+        header { padding: 30px 0; text-align: center; }
+        .header-card {
+            background: var(--glass); backdrop-filter: blur(10px);
+            border-radius: 20px; padding: 20px; border: 1px solid rgba(255,255,255,0.1);
+            display: inline-flex; align-items: center; gap: 20px;
+        }
+        .logo-img { width: 70px; height: 70px; border-radius: 12px; box-shadow: 0 0 15px var(--primary); }
+        .header-text h1 { font-family: 'Orbitron'; font-size: 30px; margin: 0; letter-spacing: 3px; }
+
+        /* --- Nav --- */
+        nav { display: flex; gap: 10px; justify-content: center; margin: 20px 0; }
+        .nav-link {
+            text-decoration: none; color: white; padding: 10px 20px;
+            background: rgba(255,255,255,0.05); border-radius: 8px;
+            font-weight: 600; font-size: 13px; transition: var(--transition);
+        }
+        .nav-link:hover { background: var(--primary); transform: translateY(-2px); }
+
+        /* --- Barre de Recherche (KIFMA KANT) --- */
+        .search-section { max-width: 700px; margin: 0 auto 50px auto; }
+        .search-container {
+            display: flex; background: rgba(255,255,255,0.08);
+            border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);
+            padding: 5px; backdrop-filter: blur(10px);
+        }
+        .search-select {
+            background: transparent; color: #00d2ff; border: none;
+            padding: 0 15px; font-family: 'Orbitron'; font-size: 11px;
+            border-right: 1px solid rgba(255,255,255,0.1); cursor: pointer; outline: none;
+        }
+        .search-input { flex: 1; background: transparent; border: none; padding: 12px 15px; color: white; outline: none; }
+        .search-btn { background: var(--primary); color: white; border: none; padding: 0 20px; border-radius: 8px; cursor: pointer; font-family: 'Orbitron'; font-weight: 700; font-size: 11px; }
+
+        /* --- Hero --- */
+        .hero { text-align: center; padding: 60px 20px; background: var(--glass); border-radius: 30px; }
+        .hero h2 { font-family: 'Orbitron'; font-size: 35px; }
+        .hero span { color: var(--primary); }
+        .btn-main { display: inline-block; background: var(--primary); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; margin-top: 25px; transition: var(--transition); }
+
+        /* --- ADMIN PANEL STYLE (ADDON) --- */
+        #adminPanel {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #050507; z-index: 10000; display: none; overflow-y: auto; padding: 40px 0;
+        }
+        .admin-card { background: #111; border-radius: 15px; padding: 20px; border: 1px solid #222; margin-bottom: 20px; }
+        .data-row { background: #1a1a1e; padding: 15px; border-radius: 10px; margin-bottom: 10px; border-left: 4px solid var(--primary); position: relative; }
+        .del-btn { position: absolute; right: 15px; top: 15px; color: #555; cursor: pointer; }
+
+        footer { text-align: center; padding: 40px; margin-top: 50px; border-top: 1px solid #222; opacity: 0.7; }
+        .admin-secret { opacity: 0.05; cursor: pointer; font-size: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="header-card">
+            <img src="https://www.bing.com/th/id/OIP.Yi6Ui_VkSZ7m750ZWGBQuQHaHa?w=157&h=180&c=7&r=0&o=7&pid=1.7&rm=3" class="logo-img">
+            <div class="header-text"><h1>NEXUS SHOP</h1></div>
+        </div>
+    </header>
+
+    <nav>
+        <a href="INDEX.html" class="nav-link">ACCUEIL</a>
+        <a href="GALERIE.html" class="nav-link">BOUTIQUE</a>
+        <a href="CONTACT.html" class="nav-link">CONTACT</a>
+    </nav>
+
+    <div class="search-section">
+        <div class="search-container">
+            <select id="searchCategory" class="search-select">
+                <option value="GALERIE.html">SHOP (ALL)</option>
+                <option value="INDEX.html">ACCUEIL</option>
+                <option value="CONTACT.html">SUPPORT</option>
+            </select>
+            <input type="text" id="siteSearchInput" class="search-input" placeholder="Chercher dans Nexus Shop...">
+            <button onclick="siteSearch()" class="search-btn">GO</button>
+        </div>
+    </div>
+
+    <section class="hero">
+        <h2>DOMINEZ LE <span>GAMING</span></h2>
+        <p>Découvrez notre catalogue exclusif de matériel professionnel.</p>
+        <a href="GALERIE.html" class="btn-main">ACCÉDER AU SHOP</a>
+    </section>
+</div>
+
+<div id="adminPanel">
+    <div class="container">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;">
+            <h1 style="font-family:'Orbitron'; color:var(--primary);">DASHBOARD 2008</h1>
+            <button onclick="closeAdmin()" class="search-btn">FERMER</button>
+        </div>
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:20px;">
+            <div class="admin-card">
+                <h3 style="font-family:'Orbitron'; color:var(--accent);"><i class="fas fa-shopping-cart"></i> TALABAT</h3>
+                <div id="adminOrders"></div>
+            </div>
+            <div class="admin-card">
+                <h3 style="font-family:'Orbitron'; color:var(--accent);"><i class="fas fa-envelope"></i> CHAT CONTACT</h3>
+                <div id="adminMsgs"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 NEXUS SHOP | MADE BY MOUSSAAB SIMOUR</p>
+    <div class="admin-secret" onclick="openAdmin()">Admin Access</div>
+</footer>
+
+<script>
+    // --- TA RECHERCHE ---
+    function siteSearch() {
+        const input = document.getElementById('siteSearchInput').value.toLowerCase();
+        const category = document.getElementById('searchCategory').value;
+        window.location.href = input.trim() !== "" ? category + "?search=" + encodeURIComponent(input) : category;
+    }
+
+    // --- LOGIQUE ADMIN (2008) ---
+    function openAdmin() {
+        if (prompt("CODE ADMIN :") === "2008") {
+            document.getElementById('adminPanel').style.display = 'block';
+            refreshAdmin();
+        }
+    }
+
+    function closeAdmin() { document.getElementById('adminPanel').style.display = 'none'; }
+
+    function refreshAdmin() {
+        // Hna kanchoufou dakchi li tsift f Contact wala Galerie
+        const msgs = JSON.parse(localStorage.getItem('nx_msgs')) || [];
+        const orders = JSON.parse(localStorage.getItem('nx_orders')) || [];
+
+        document.getElementById('adminMsgs').innerHTML = msgs.map((m, i) => `
+            <div class="data-row">
+                <i class="fas fa-trash del-btn" onclick="deleteItem('nx_msgs', ${i})"></i>
+                <b>${m.name}</b>: ${m.text}<br><small>${m.date}</small>
+            </div>`).join('') || "Walou...";
+
+        document.getElementById('adminOrders').innerHTML = orders.map((o, i) => `
+            <div class="data-row" style="border-left-color:var(--accent)">
+                <i class="fas fa-trash del-btn" onclick="deleteItem('nx_orders', ${i})"></i>
+                <b>${o.item}</b> - ${o.price} DH<br><small>${o.date}</small>
+            </div>`).join('') || "Walou...";
+    }
+
+    function deleteItem(key, index) {
+        let data = JSON.parse(localStorage.getItem(key));
+        data.splice(index, 1);
+        localStorage.setItem(key, JSON.stringify(data));
+        refreshAdmin();
+    }
+</script>
+</body>
+</html>
